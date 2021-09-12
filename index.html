@@ -299,82 +299,14 @@
 
       
         
-          
-            <h1 id="昨日内容回顾"><a href="#昨日内容回顾" class="headerlink" title="昨日内容回顾"></a>昨日内容回顾</h1><h2 id="事务和锁"><a href="#事务和锁" class="headerlink" title="事务和锁"></a>事务和锁</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from django.db import transaction</span><br><span class="line"></span><br><span class="line">@transaction.atomic</span><br><span class="line">def index(request):</span><br><span class="line">	..</span><br><span class="line"></span><br><span class="line">def index(request):</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	#上下文</span><br><span class="line">	with transaction.atomic():</span><br><span class="line">		...</span><br><span class="line">		</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">锁:</span><br><span class="line">	models.Book.objects.select_for_update().filter(id=1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">五个方法</span><br><span class="line">process_request</span><br><span class="line">process_response</span><br><span class="line">process_view</span><br><span class="line">process_exception</span><br><span class="line">process_template_response</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">自定义中间件</span><br><span class="line">应用下 创建一个文件夹,例如xx文件夹</span><br><span class="line">创建一个py文件,oo.py</span><br><span class="line"></span><br><span class="line">from django.utils.deprecation import MiddleWareMixin</span><br><span class="line"></span><br><span class="line">class MyAuth(MiddleWareMixin):</span><br><span class="line">	</span><br><span class="line">	def process_request(self,request):</span><br><span class="line">		request</span><br><span class="line">		...</span><br><span class="line">	def process_response(self,request,response):</span><br><span class="line">		return response</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
-
-
-
-<p>请求–wsgi.py–中间件(process_request)–urls.py–视图(数据库:orm,template:html)–中间(process_response)</p>
-<h1 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h1><h2 id="form组件"><a href="#form组件" class="headerlink" title="form组件"></a>form组件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 生成html标签</span><br><span class="line">2 保留原来的数据</span><br><span class="line">3 校验用户提交的数据</span><br></pre></td></tr></table></figure>
-
-
-
-<p>正则校验器</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from django.core.validators import RegexValidator</span><br><span class="line"> </span><br><span class="line">class MyForm(Form):</span><br><span class="line">    user = fields.CharField(</span><br><span class="line">        validators=[RegexValidator(r&#x27;^[0-9]+$&#x27;, &#x27;请输入数字&#x27;), RegexValidator(r&#x27;^159[0-9]+$&#x27;, &#x27;数字必须以159开头&#x27;)],</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-
-
-
-<p>校验函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"># 自定义验证规则</span><br><span class="line">def mobile_validate(value):</span><br><span class="line">    mobile_re = re.compile(r&#x27;^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]&#123;8&#125;$&#x27;)</span><br><span class="line">    if not mobile_re.match(value):</span><br><span class="line">        raise ValidationError(&#x27;手机号码格式错误&#x27;)  #自定义验证规则的时候，如果不符合你的规则，需要自己发起错误</span><br><span class="line"></span><br><span class="line">class MyForm(Form):</span><br><span class="line">    user = fields.CharField(</span><br><span class="line">        validators=[mobile_validate，],</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">        </span><br></pre></td></tr></table></figure>
-
-
-
-<p>局部钩子</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class LoginForm(forms.Form):</span><br><span class="line">    username = forms.CharField(</span><br><span class="line">        min_length=8,</span><br><span class="line">        label=&quot;用户名&quot;,</span><br><span class="line">        initial=&quot;张三&quot;,</span><br><span class="line">        error_messages=&#123;</span><br><span class="line">            &quot;required&quot;: &quot;不能为空&quot;,</span><br><span class="line">            &quot;invalid&quot;: &quot;格式错误&quot;,</span><br><span class="line">            &quot;min_length&quot;: &quot;用户名最短8位&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        widget=forms.widgets.TextInput(attrs=&#123;&quot;class&quot;: &quot;form-control&quot;&#125;)</span><br><span class="line">    )</span><br><span class="line">    ...</span><br><span class="line">    # 定义局部钩子，用来校验username字段,之前的校验股则还在，给你提供了一个添加一些校验功能的钩子</span><br><span class="line">    def clean_username(self):</span><br><span class="line">        value = self.cleaned_data.get(&quot;username&quot;)</span><br><span class="line">        if &quot;666&quot; in value:</span><br><span class="line">            raise ValidationError(&quot;光喊666是不行的&quot;)</span><br><span class="line">        else:</span><br><span class="line">            return value</span><br></pre></td></tr></table></figure>
-
-<p>全局钩子</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class LoginForm(forms.Form):</span><br><span class="line">    ...</span><br><span class="line">    password = forms.CharField(</span><br><span class="line">        min_length=6,</span><br><span class="line">        label=&quot;密码&quot;,</span><br><span class="line">        widget=forms.widgets.PasswordInput(attrs=&#123;&#x27;class&#x27;: &#x27;form-control&#x27;&#125;, render_value=True)</span><br><span class="line">    )</span><br><span class="line">    re_password = forms.CharField(</span><br><span class="line">        min_length=6,</span><br><span class="line">        label=&quot;确认密码&quot;,</span><br><span class="line">        widget=forms.widgets.PasswordInput(attrs=&#123;&#x27;class&#x27;: &#x27;form-control&#x27;&#125;, render_value=True)</span><br><span class="line">    )</span><br><span class="line">    ...</span><br><span class="line">    # 定义全局的钩子，用来校验密码和确认密码字段是否相同，执行全局钩子的时候，cleaned_data里面肯定是有了通过前面验证的所有数据</span><br><span class="line">    def clean(self):</span><br><span class="line">        password_value = self.cleaned_data.get(&#x27;password&#x27;)</span><br><span class="line">        re_password_value = self.cleaned_data.get(&#x27;re_password&#x27;)</span><br><span class="line">        if password_value == re_password_value:</span><br><span class="line">            return self.cleaned_data #全局钩子要返回所有的数据</span><br><span class="line">        else:</span><br><span class="line">            self.add_error(&#x27;re_password&#x27;, &#x27;两次密码不一致&#x27;) #在re_password这个字段的错误列表中加上一个错误，并且clean_data里面会自动清除这个re_password的值，所以打印clean_data的时候会看不到它</span><br><span class="line">            #raise ValidationError(&#x27;两次密码不一致&#x27;)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>大致流程</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字段内部属性相关校验--局部钩子校验---然后循环下一个字段进行上面两步校验 -- 最后执行全局钩子</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
+          <h1 id="昨日内容回顾"><a href="#昨日内容回顾" class="headerlink" title="昨日内容回顾"></a>昨日内容回顾</h1><h2 id="事务和锁"><a href="#事务和锁" class="headerlink" title="事务和锁"></a>事务和锁</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from django.db import transaction</span><br><span class="line"></span><br><span class="line">@transaction.atomic</span><br><span class="line">def index(request):</span><br><span class="line">	..</span><br><span class="line"></span><br><span class="line">def index(request):</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	#上下文</span><br><span class="line">	with transaction.atomic():</span><br><span class="line">		...</span><br><span class="line">		</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">锁:</span><br><span class="line">	models.Book.objects.select_for_update().filter(id=1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/09/12/test/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
