@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>安全基础-00测试层面分类 - forg12_blog</title>
+  <title>安全基础-00测试分类和加解密 - forg12_blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="安全基础-00测试层面分类">
+            <span class="h2" id="subtitle" title="安全基础-00测试分类和加解密">
               
             </span>
 
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      713 字
+      806 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      8
        分钟
     </span>
   
@@ -225,7 +225,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">安全基础-00测试层面分类</h1>
+            <h1 style="display: none">安全基础-00测试分类和加解密</h1>
             
             <div class="markdown-body">
               <h1 id="测试层面分类"><a href="#测试层面分类" class="headerlink" title="测试层面分类"></a>测试层面分类</h1><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h4 id="网站源码（框架安全）"><a href="#网站源码（框架安全）" class="headerlink" title="网站源码（框架安全）"></a>网站源码（框架安全）</h4><h5 id="CMS框架：内部源码思路不同"><a href="#CMS框架：内部源码思路不同" class="headerlink" title="CMS框架：内部源码思路不同"></a>CMS框架：内部源码思路不同</h5><h5 id="内部或未知（黑盒）"><a href="#内部或未知（黑盒）" class="headerlink" title="内部或未知（黑盒）"></a>内部或未知（黑盒）</h5><h5 id="开源（白盒）"><a href="#开源（白盒）" class="headerlink" title="开源（白盒）"></a>开源（白盒）</h5><p>网站源码的作用：</p>
@@ -276,6 +276,40 @@
 <h4 id="Jboss："><a href="#Jboss：" class="headerlink" title="Jboss："></a>Jboss：</h4><p>​    Jboss是一个基于J2EE的开放源代码的应用服务器。Jboss代码遵循LGPL许可，可以在任何商业应用中免费使用。Jboss是一个管理EJB的容器和服务器，支持EJB1.1，EJGB2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomato或Jetty绑定使用。</p>
 <h4 id="Redis："><a href="#Redis：" class="headerlink" title="Redis："></a>Redis：</h4><p>​    Redis（Remote Dictionary），即远程字典服务，是一个开源的使用ANSI C语言编写，支持网络，可基于内存亦可持久化的日志型。Key-Value数据库，并提供多种语言的API。</p>
 <h4 id="serv-u："><a href="#serv-u：" class="headerlink" title="serv-u："></a>serv-u：</h4><p>​    Serv-U FTP Server，是一种被广泛运用的FTP服务器端软件，支持3x/9x/ME/NYT/2K等全Windows系列。可以设定多个FTP服务器，限定登录用户的权限，登录主目录及空间大小等，功能非常完备。它具有非常晚辈的安全特性，支持SSl FTP传输，支持在多个Serv-U和FTP客户端通过SSL加密连接保护您的数据安全等。</p>
+<h1 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h1><h2 id="常见加密形式算法解析"><a href="#常见加密形式算法解析" class="headerlink" title="常见加密形式算法解析"></a>常见加密形式算法解析</h2><ol>
+<li><p>直接加密</p>
+</li>
+<li><p>带</p>
+<ul>
+<li><p>salt</p>
+</li>
+<li><p>密码</p>
+</li>
+<li><p>偏移量</p>
+</li>
+<li><p>位数</p>
+</li>
+<li><p>模式</p>
+</li>
+<li><p>干扰</p>
+</li>
+<li><p>自定义组合</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="常见的加密方式"><a href="#常见的加密方式" class="headerlink" title="常见的加密方式"></a>常见的加密方式</h2><ol>
+<li>枚举</li>
+<li>自定义逆向算法</li>
+<li>可逆向</li>
+</ol>
+<h2 id="常规加密算法的特性"><a href="#常规加密算法的特性" class="headerlink" title="常规加密算法的特性"></a>常规加密算法的特性</h2><ol>
+<li>长度位数</li>
+<li>字符规律</li>
+<li>代码分析</li>
+<li>搜索获取</li>
+</ol>
+<p>根据特性对加密方式进行判断</p>
 
             </div>
             <hr>
