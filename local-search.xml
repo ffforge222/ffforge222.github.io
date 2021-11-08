@@ -22,5 +22,24 @@
   
   
   
+  <entry>
+    <title>安全基础-rce</title>
+    <link href="/2021/09/12/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-rce/"/>
+    <url>/2021/09/12/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-rce/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-RCE-remote-command-code-execute-概述"><a href="#1-RCE-remote-command-code-execute-概述" class="headerlink" title="1.RCE(remote command/code execute)概述"></a>1.RCE(remote command/code execute)概述</h1><p>RCE漏洞，可以让攻击者直接向后台服务器远程注入操作系统命令或者代码，从而控制后台系统。 </p><h1 id="2-远程系统命令执行"><a href="#2-远程系统命令执行" class="headerlink" title="2.远程系统命令执行"></a>2.远程系统命令执行</h1><pre><code>一般出现这种漏洞，是因为应用系统从设计上需要给用户提供指定的远程命令操作的接口比如我们常见的路由器、防火墙、入侵检测等设备的web管理界面上一般会给用户提供一个ping操作的web界面，用户从web界面输入目标IP，提交后，后台会对该IP地址进行一次ping测试，并返回测试结果。 而，如果，设计者在完成该功能时，没有做严格的安全控制，则可能会导致攻击者通过该接口提交“意想不到”的命令，从而让后台进行执行，从而控制整个后台服务器</code></pre><h1 id="3-远程代码执行"><a href="#3-远程代码执行" class="headerlink" title="3.远程代码执行"></a>3.远程代码执行</h1><pre><code>同样的道理,因为需求设计,后台有时候也会把用户的输入作为代码的一部分进行执行,也就造成了远程代码执行漏洞。 不管是使用了代码执行的函数,还是使用了不安全的反序列化等等。 因此，如果需要给前端用户提供操作类的API接口，一定需要对接口输入的内容进行严格的判断，比如实施严格的白名单策略会是一个比较好的方法。 </code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>安全基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
   
 </search>
