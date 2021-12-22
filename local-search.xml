@@ -3,43 +3,5 @@
   
   
   
-  <entry>
-    <title>安全基础-00测试分类和加解密</title>
-    <link href="/2021/09/12/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-00%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB%E5%92%8C%E5%8A%A0%E8%A7%A3%E5%AF%86/"/>
-    <url>/2021/09/12/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-00%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB%E5%92%8C%E5%8A%A0%E8%A7%A3%E5%AF%86/</url>
-    
-    <content type="html"><![CDATA[<h1 id="测试层面分类"><a href="#测试层面分类" class="headerlink" title="测试层面分类"></a>测试层面分类</h1><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h4 id="网站源码（框架安全）"><a href="#网站源码（框架安全）" class="headerlink" title="网站源码（框架安全）"></a>网站源码（框架安全）</h4><h5 id="CMS框架：内部源码思路不同"><a href="#CMS框架：内部源码思路不同" class="headerlink" title="CMS框架：内部源码思路不同"></a>CMS框架：内部源码思路不同</h5><h5 id="内部或未知（黑盒）"><a href="#内部或未知（黑盒）" class="headerlink" title="内部或未知（黑盒）"></a>内部或未知（黑盒）</h5><h5 id="开源（白盒）"><a href="#开源（白盒）" class="headerlink" title="开源（白盒）"></a>开源（白盒）</h5><p>网站源码的作用：</p><p>1.目录结构</p><ul><li><p>模板目录</p></li><li><p>数据库目录</p></li><li><p>数据库配置文件</p></li></ul><p>2.脚本类型（脚本决定下列安全）</p><ul><li>数据库存储</li><li>解释或编译类型</li><li>语言</li></ul><p>3.应用分类（功能决定大方向漏洞类型）</p><ul><li>门户</li><li>电商</li><li>论坛</li></ul><h5 id="框架或非框架"><a href="#框架或非框架" class="headerlink" title="框架或非框架"></a>框架或非框架</h5><h5 id="部分漏洞采用人工雇主探针"><a href="#部分漏洞采用人工雇主探针" class="headerlink" title="部分漏洞采用人工雇主探针"></a>部分漏洞采用人工雇主探针</h5><h4 id="搭建平台（中间件安全）"><a href="#搭建平台（中间件安全）" class="headerlink" title="搭建平台（中间件安全）"></a>搭建平台（中间件安全）</h4><ol><li>配置导致安全问题</li><li>安全配置防护<ul><li>IP或用户验证</li><li>文件格式解析</li><li>目录或文件执行权限</li></ul></li></ol><h4 id="数据库（数据库安全）"><a href="#数据库（数据库安全）" class="headerlink" title="数据库（数据库安全）"></a>数据库（数据库安全）</h4><ol><li>弱命令</li><li>漏洞</li></ol><h3 id="APP"><a href="#APP" class="headerlink" title="APP"></a>APP</h3><h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><h4 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h4><h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ol><li><p>系统漏洞</p></li><li><p>反编译提取URL</p></li><li><p>抓包结合Web</p></li></ol><h3 id="第三方（软件和服务类安全）"><a href="#第三方（软件和服务类安全）" class="headerlink" title="第三方（软件和服务类安全）"></a>第三方（软件和服务类安全）</h3><h4 id="Openssh："><a href="#Openssh：" class="headerlink" title="Openssh："></a>Openssh：</h4><p>​    OpenSSH 是SSH（Secure SHell）协议的免费开源实现。SSH协议族可以用来进行远程控制，或者在计算机之间传送文件。而实现此功能的传统方式，如telnet（终端仿真协议），rcp ftp，rlogin，rhs都是极为不安全的，而且会使用明文传送密码。OpenSSh提供了服务端后台程序和客户端工具，用来加密远程控制和文件传输过程中的数据，并由此来替代原来的类似服务。</p><h4 id="Weblogic："><a href="#Weblogic：" class="headerlink" title="Weblogic："></a>Weblogic：</h4><p>​    WebJogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间件，WebLogic是用于开发，基础，部署和管理大型分布式Web应用，网络应用和数据库应用的Javda应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发，集成，部署和管理之中。</p><h4 id="Jboss："><a href="#Jboss：" class="headerlink" title="Jboss："></a>Jboss：</h4><p>​    Jboss是一个基于J2EE的开放源代码的应用服务器。Jboss代码遵循LGPL许可，可以在任何商业应用中免费使用。Jboss是一个管理EJB的容器和服务器，支持EJB1.1，EJGB2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomato或Jetty绑定使用。</p><h4 id="Redis："><a href="#Redis：" class="headerlink" title="Redis："></a>Redis：</h4><p>​    Redis（Remote Dictionary），即远程字典服务，是一个开源的使用ANSI C语言编写，支持网络，可基于内存亦可持久化的日志型。Key-Value数据库，并提供多种语言的API。</p><h4 id="serv-u："><a href="#serv-u：" class="headerlink" title="serv-u："></a>serv-u：</h4><p>​    Serv-U FTP Server，是一种被广泛运用的FTP服务器端软件，支持3x/9x/ME/NYT/2K等全Windows系列。可以设定多个FTP服务器，限定登录用户的权限，登录主目录及空间大小等，功能非常完备。它具有非常晚辈的安全特性，支持SSl FTP传输，支持在多个Serv-U和FTP客户端通过SSL加密连接保护您的数据安全等。</p><h1 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h1><h2 id="常见加密形式算法解析"><a href="#常见加密形式算法解析" class="headerlink" title="常见加密形式算法解析"></a>常见加密形式算法解析</h2><ol><li><p>直接加密</p></li><li><p>带</p><ul><li><p>salt</p></li><li><p>密码</p></li><li><p>偏移量</p></li><li><p>位数</p></li><li><p>模式</p></li><li><p>干扰</p></li><li><p>自定义组合</p></li></ul></li></ol><h2 id="常见的加密方式"><a href="#常见的加密方式" class="headerlink" title="常见的加密方式"></a>常见的加密方式</h2><ol><li>枚举</li><li>自定义逆向算法</li><li>可逆向</li></ol><h2 id="常规加密算法的特性"><a href="#常规加密算法的特性" class="headerlink" title="常规加密算法的特性"></a>常规加密算法的特性</h2><ol><li>长度位数</li><li>字符规律</li><li>代码分析</li><li>搜索获取</li></ol><p>根据特性对加密方式进行判断</p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>安全基础</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>安全基础-rce</title>
-    <link href="/2021/09/12/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-rce/"/>
-    <url>/2021/09/12/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80-rce/</url>
-    
-    <content type="html"><![CDATA[<h1 id="1-RCE-remote-command-code-execute-概述"><a href="#1-RCE-remote-command-code-execute-概述" class="headerlink" title="1.RCE(remote command/code execute)概述"></a>1.RCE(remote command/code execute)概述</h1><p>RCE漏洞，可以让攻击者直接向后台服务器远程注入操作系统命令或者代码，从而控制后台系统。 </p><h1 id="2-远程系统命令执行"><a href="#2-远程系统命令执行" class="headerlink" title="2.远程系统命令执行"></a>2.远程系统命令执行</h1><pre><code>一般出现这种漏洞，是因为应用系统从设计上需要给用户提供指定的远程命令操作的接口比如我们常见的路由器、防火墙、入侵检测等设备的web管理界面上一般会给用户提供一个ping操作的web界面，用户从web界面输入目标IP，提交后，后台会对该IP地址进行一次ping测试，并返回测试结果。 而，如果，设计者在完成该功能时，没有做严格的安全控制，则可能会导致攻击者通过该接口提交“意想不到”的命令，从而让后台进行执行，从而控制整个后台服务器</code></pre><h1 id="3-远程代码执行"><a href="#3-远程代码执行" class="headerlink" title="3.远程代码执行"></a>3.远程代码执行</h1><pre><code>同样的道理,因为需求设计,后台有时候也会把用户的输入作为代码的一部分进行执行,也就造成了远程代码执行漏洞。 不管是使用了代码执行的函数,还是使用了不安全的反序列化等等。 因此，如果需要给前端用户提供操作类的API接口，一定需要对接口输入的内容进行严格的判断，比如实施严格的白名单策略会是一个比较好的方法。 </code></pre>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>安全基础</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
   
 </search>
